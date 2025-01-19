@@ -85,46 +85,46 @@ if(isset($_GET['id'])) {
 
                     <tbody>
                        
-                         <?php
-                         $servername = "localhost";
-                         $username = "root";
-                         $password = "";
-                         $dbname = "ruwan";
-                         
-                         // Create a connection
-                         $conn = new mysqli($servername, $username, $password, $dbname);
-                         // Check the connection
+                       <?php
+                       $servername = "localhost";
+                       $username = "root";
+                       $password = "";
+                       $dbname = "ruwan";
+                       
+                       // Create a connection
+                       $conn = new mysqli($servername, $username, $password, $dbname);
+                       // Check the connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $conn->connect_error);
 }
-          $query = "SELECT * FROM questions";
-          $result_tasks = mysqli_query($conn, $query);    
+        $query = "SELECT * FROM questions";
+        $result_tasks = mysqli_query($conn, $query);    
 
-          while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-          <tr>
-          <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['question_name']; ?></td>
-            <td><?php echo $row['answer']; ?></td>
-            
-            <td>
-              <a href="editcategory.php?id=<?php echo $row['id']?>" class="btn btn-success btn-icon-split">
-               
-                <span class='icon text-white-50'>
-                    <i class='fas fa-check'></i>
-                </span>
-                <span class='text'>Edit</span>
-              </a>
-              <a href="allcategory.php?id=<?php echo $row['id']?>" class="btn btn-danger btn-icon-split">
+        while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+        <tr>
+        <td><?php echo $row['id']; ?></td>
+          <td><?php echo $row['question_name']; ?></td>
+          <td><?php echo $row['answer']; ?></td>
+          
+          <td>
+            <a href="editQuestions.php?id=<?php echo $row['id']?>" class="btn btn-success btn-icon-split">
+             
               <span class='icon text-white-50'>
-                    <i class='fas fa-trash'></i>
-                </span>
-            <span class='text'>Delete</span>
-              </a>
-            </td>
-          </tr>
-          <?php } ?>
-                        
-                    </tbody>
+                  <i class='fas fa-check'></i>
+              </span>
+              <span class='text'>Edit</span>
+            </a>
+            <a href="Questions.php?id=<?php echo $row['id']?>" class="btn btn-danger btn-icon-split">
+            <span class='icon text-white-50'>
+                  <i class='fas fa-trash'></i>
+              </span>
+          <span class='text'>Delete</span>
+            </a>
+          </td>
+        </tr>
+        <?php } ?>
+                      
+                  </tbody>
                 </table>
                 <?php
                     // Close the connection

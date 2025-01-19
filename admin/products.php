@@ -111,7 +111,7 @@ if (isset($_GET['id'])) {
                                                 <span class="text">Edit</span>
                                             </a>
                                         
-                                <form method="POST" action="delete.php" style="display:inline;" 
+                                <form method="POST" action="../admin/delete.php" style="display:inline;" 
                                     onsubmit="return confirm('Are you sure you want to delete this record?');">
                                     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                     <button type="submit" class="delete-btn">

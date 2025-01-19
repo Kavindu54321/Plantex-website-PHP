@@ -41,7 +41,7 @@ if ($email && $password) {
 if ($usertype === "admin") {
     header("Location: index.php");
 } elseif ($usertype === "user") {
-    header("Location: /ruwan/plantex/home/index.php");
+    header("Location: /plantex/home/index.php");
 } else {
     echo "User type not recognized.";
 }

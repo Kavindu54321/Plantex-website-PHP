@@ -202,10 +202,10 @@ $result = mysqli_query($conn,$sql);
                         while($row = mysqli_fetch_assoc($result))
                         {
                             ?>
-                    <article class="product__card">
+                              <article class="product__card">
                         <div class="product__circle"></div>
 
-                        <img src="/ruwan/plantex/admin/uploads/<?php echo $row['image']; ?>"  alt="" class="product__img">
+                        <img src="/plantex/admin/uploads/<?php echo $row['image']; ?>" alt="" class="product__img">
 
                         <h3 class="product__title"><?php echo $row['plant_name']?></h3>
                         <span class="product__price"><?php echo $row['plant_price']?></span>
@@ -214,6 +214,8 @@ $result = mysqli_query($conn,$sql);
                             <i class="ri-shopping-bag-line"></i>
                         </button>
                     </article>
+
+                    
                     <?php
  }
  ?> 
@@ -227,106 +229,49 @@ $result = mysqli_query($conn,$sql);
                     Some common questions <br> were often asked
                 </h2>
 
-                <div class="questions__container container grid">
-                    <div class="questions__group">
-                        <div class="questions__item">
-                            <header class="questions__header">
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
-                                    My flowers are falling off or dying?
-                                </h3>
-                            </header>
+               
+                   
+                    <?php
+// Database connection parameters
+$servername = "localhost";
+$username = "root"; // Your database username
+$password_db = "";  // Your database password (default is empty)
+$dbname = "ruwan";   // Your database name
 
-                            <div class="questions__content">
-                                <p class="questions__description">
-                                    Plants are easy way to add color energy and transform your 
-                                    space but which planet is for you. Choosing the right plant.
-                                </p>
+// Create connection
+$conn = new mysqli($servername, $username, $password_db, $dbname);
+ 
+$sql = "SELECT * FROM questions";
+
+$result = mysqli_query($conn,$sql);
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                            ?>
+                        <div class="questions__container container grid">
+                            <div class="questions__group">
+                                <div class="questions__item">
+                                    <header class="questions__header">
+                                        <i class="ri-add-line questions__icon"></i>
+                                        <h3 class="questions__item-title">
+                                        <?php echo $row['question_name']?>
+                                        </h3>
+                                    </header>
+
+                                    <div class="questions__content">
+                                        <p class="questions__description">
+                                        <?php echo $row['answer']?>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <?php
+ }
+ ?> 
+                   
 
-                        <div class="questions__item">
-                            <header class="questions__header">
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
-                                    What causes leaves to become pale?
-                                </h3>
-                            </header>
-
-                            <div class="questions__content">
-                                <p class="questions__description">
-                                    Plants are easy way to add color energy and transform your 
-                                    space but which planet is for you. Choosing the right plant.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="questions__item">
-                            <header class="questions__header">
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
-                                    What causes brown crispy leaves?
-                                </h3>
-                            </header>
-
-                            <div class="questions__content">
-                                <p class="questions__description">
-                                    Plants are easy way to add color energy and transform your 
-                                    space but which planet is for you. Choosing the right plant.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="questions__group">
-                        <div class="questions__item">
-                            <header class="questions__header">
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
-                                    How do i choose a plant?
-                                </h3>
-                            </header>
-
-                            <div class="questions__content">
-                                <p class="questions__description">
-                                    Plants are easy way to add color energy and transform your 
-                                    space but which planet is for you. Choosing the right plant.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="questions__item">
-                            <header class="questions__header">
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
-                                    How do I change the pots?
-                                </h3>
-                            </header>
-
-                            <div class="questions__content">
-                                <p class="questions__description">
-                                    Plants are easy way to add color energy and transform your 
-                                    space but which planet is for you. Choosing the right plant.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="questions__item">
-                            <header class="questions__header">
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
-                                    Why are gnats flying around my plant?
-                                </h3>
-                            </header>
-
-                            <div class="questions__content">
-                                <p class="questions__description">
-                                    Plants are easy way to add color energy and transform your 
-                                    space but which planet is for you. Choosing the right plant.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    
+                
                 </div>
             </section>
 

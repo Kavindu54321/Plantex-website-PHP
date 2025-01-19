@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="form-group">
                     <label for="answer">answer:</label>
-                    <input type="text" id="answer" name="answer" placeholder="Enter plant_price" required>
+                    <textarea type="text" id="answer" name="answer" placeholder="Enter plant_price" required></textarea>
                 </div>
                 
 
